@@ -1,0 +1,49 @@
+@import 'src/assets/styles/mixins';
+
+.basket {
+
+  &__btn {
+    @include reset-button;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;
+    min-height: 110px;
+    border-radius: 3px;
+    padding-bottom: 11px;
+    background-color: #FFF9C6; //stylelint-disable-line
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+      background-color: #f4eebb; //stylelint-disable-line
+    }
+  }
+
+  &__btn-badge {
+    position: absolute;
+    top: 9px;
+    left: 18px;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 33px;
+    color: #1B4145; //stylelint-disable-line
+    text-align: center;
+    background-color: #FFE300; //stylelint-disable-line
+    box-shadow: 0 4px 4px rgba(29, 29, 29, 0.25);
+  }
+
+  &__btn-icon {
+    margin-top: auto;
+    margin-bottom: 7px;
+  }
+
+  &__btn-text {
+    font-size: 14px;
+    line-height: 17px;
+    color: #1B4145; //stylelint-disable-line
+  }
+}

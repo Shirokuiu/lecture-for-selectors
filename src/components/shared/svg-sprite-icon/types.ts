@@ -7,9 +7,8 @@ export type SvgSpriteIconProps = PropsWithCssClassName<{
 }>;
 
 export enum SvgSpriteIconId {
-  PhoneCall = 'phone-call',
   ShoppingCart = 'shopping-cart',
-  Telegram = 'telegram',
+  Like = 'like',
 }
 
 export enum SvgSpriteIconSize {

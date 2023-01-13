@@ -1,0 +1,15 @@
+.header {
+  padding: 10px 0 10px 10px;
+  background-color: #FFFCE8; //stylelint-disable-line
+  box-shadow: 0 3px 5px rgba(87, 87, 87, 0.25);
+
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__favorites-badge {
+    margin-right: 60px;
+  }
+}

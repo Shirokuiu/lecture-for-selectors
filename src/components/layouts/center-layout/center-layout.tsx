@@ -2,8 +2,10 @@ import { PropsWithChildren } from 'react';
 
 import './center-layout.scss';
 
-function CenterLayout({ children }: PropsWithChildren<Record<string, unknown>>) {
-  return <div className="center-layout">{children}</div>;
+import { PropsWithCssClassName } from 'src/type/shared';
+
+function CenterLayout({ children, className = '' }: PropsWithChildren<PropsWithCssClassName>) {
+  return <div className={`center-layout ${className}`.trim()}>{children}</div>;
 }
 
 export default CenterLayout;
