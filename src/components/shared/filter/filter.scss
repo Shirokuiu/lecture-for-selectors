@@ -1,0 +1,55 @@
+@import 'src/assets/styles/mixins';
+
+.filter {
+  $block-name: &; // Использование: #{$block-name}__element
+  display: flex;
+  align-items: center;
+  padding: 19px 65px 21px 50px;
+  background-color: #FFFCE8; //stylelint-disable-line
+
+  &__title {
+    @include reset();
+    margin-right: 37px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1B4145; //stylelint-disable-line
+  }
+
+  &__select-for-ingredients,
+  &__select-for-numbers {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 304px;
+    margin-right: 37px;
+  }
+
+  &__reset-btn {
+    @include reset-button();
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1B4145; //stylelint-disable-line
+    cursor: pointer;
+
+    &:hover {
+      #{$block-name}__reset-btn-icon {
+        fill: #aba9a9; //stylelint-disable-line
+      }
+
+      #{$block-name}__reset-btn-text {
+        color: #000000; //stylelint-disable-line
+      }
+    }
+  }
+
+  &__reset-btn-text {
+    margin-right: 13px;
+    transition: 0.2s ease;
+  }
+
+  &__reset-btn-icon {
+    fill: #C1C1C1; //stylelint-disable-line
+  }
+}

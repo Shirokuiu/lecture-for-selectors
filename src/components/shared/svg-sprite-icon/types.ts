@@ -9,6 +9,7 @@ export type SvgSpriteIconProps = PropsWithCssClassName<{
 export enum SvgSpriteIconId {
   ShoppingCart = 'shopping-cart',
   Like = 'like',
+  CloseButton = 'close-button',
 }
 
 export enum SvgSpriteIconSize {
