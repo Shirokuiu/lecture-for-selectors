@@ -1,0 +1,25 @@
+.pie-cart-weight-chooser {
+
+  &__item {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title,
+  &__text {
+    font-size: 18px;
+    line-height: 21px;
+    color: #1B4145; //stylelint-disable-line
+  }
+
+  &__title {
+    margin-right: 5px;
+  }
+
+  &__text {
+    font-weight: 700;
+  }
+}

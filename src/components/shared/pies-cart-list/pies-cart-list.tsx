@@ -7,6 +7,18 @@ function PiesCartList() {
       <li className="pies-cart-list__item">
         <PieCart />
       </li>
+      <li className="pies-cart-list__item">
+        <PieCart />
+      </li>
+      <li className="pies-cart-list__item">
+        <PieCart />
+      </li>
+      <li className="pies-cart-list__item">
+        <PieCart />
+      </li>
+      <li className="pies-cart-list__item">
+        <PieCart />
+      </li>
     </ul>
   );
 }

@@ -10,6 +10,11 @@ export enum SvgSpriteIconId {
   ShoppingCart = 'shopping-cart',
   Like = 'like',
   CloseButton = 'close-button',
+  ShoppingCartBtn = 'shopping-cart-btn',
+  Leaf = 'leaf',
+  CorrectSymbol = 'correct-symbol',
+  Minus = 'minus',
+  Plus = 'plus',
 }
 
 export enum SvgSpriteIconSize {

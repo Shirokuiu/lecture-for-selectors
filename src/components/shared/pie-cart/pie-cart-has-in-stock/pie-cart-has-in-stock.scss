@@ -1,0 +1,12 @@
+@import 'src/assets/styles/mixins';
+
+.pie-cart-has-in-stock {
+  @include reset();
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    margin-right: 5px;
+    fill: #08B608; //stylelint-disable-line
+  }
+}
