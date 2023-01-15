@@ -1,19 +1,12 @@
-import SvgSpriteIcon from 'src/components/shared/svg-sprite-icon/svg-sprite-icon';
-import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
-import './favorites-badge.scss';
-
+import FavoriteIcon from 'src/components/shared/favorite-icon/favorite-icon';
 import { PropsWithCssClassName } from 'src/type/shared';
+import './favorites-badge.scss';
 
 function FavoritesBadge({ className = '' }: PropsWithCssClassName) {
   return (
     <div className={`favorites-badge ${className}`.trim()}>
       <span className="favorites-badge__counter">0</span>
-      <SvgSpriteIcon
-        id={SvgSpriteIconId.Like}
-        width={30}
-        height={30}
-        className="favorites-badge__icon"
-      />
+      <FavoriteIcon />
     </div>
   );
 }

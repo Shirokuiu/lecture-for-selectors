@@ -1,0 +1,35 @@
+@import 'src/assets/styles/mixins';
+
+.pie-cart-basket-counter {
+  display: flex;
+  align-items: center;
+
+  &__minus,
+  &__plus {
+    @include out(#f6eeb2);
+    @include reset-button();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #FFF9C6; //stylelint-disable-line
+    transition: 0.2s ease;
+
+    &:hover {
+      background-color: #f6eeb2; //stylelint-disable-line
+    }
+  }
+
+  &__count {
+    display: block;
+    width: 38px;
+    height: 30px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #1B4145; //stylelint-disable-line
+    text-align: center;
+    background-color: #FFFCE4; //stylelint-disable-line
+  }
+}

@@ -1,0 +1,13 @@
+.favorite-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #E4EEF4; //stylelint-disable-line
+
+  &__icon {
+    transform: translateY(2px);
+  }
+}

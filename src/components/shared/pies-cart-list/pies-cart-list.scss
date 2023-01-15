@@ -1,0 +1,15 @@
+@import 'src/assets/styles/mixins';
+
+.pies-cart-list {
+  @include reset-list();
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 30px 50px;
+  background-color: #F7F8FC; //stylelint-disable-line
+
+  &__item {
+    width: 308px;
+    min-height: 490px;
+  }
+}
