@@ -1,0 +1,31 @@
+.basket-pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__img-wrap {
+    flex-shrink: 0;
+    width: 60px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  &__img {
+    display: block;
+  }
+
+  &__title {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 188px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #1B4145; //stylelint-disable-line
+  }
+
+  &__price {
+    font-size: 18px;
+    line-height: 21px;
+    color: #1B4145; //stylelint-disable-line
+  }
+}

@@ -15,6 +15,7 @@ export enum SvgSpriteIconId {
   CorrectSymbol = 'correct-symbol',
   Minus = 'minus',
   Plus = 'plus',
+  RightArrow = 'right-arrow',
 }
 
 export enum SvgSpriteIconSize {
