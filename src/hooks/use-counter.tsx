@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const MIN_COUNT = 1;
-const COUNT_STEP = 1;
+const STEP = 1;
 
 export type IUseCounter = {
   count: number;
@@ -14,12 +14,12 @@ function useCounter(startCount: number): IUseCounter {
 
   const handleMinus = () => {
     if (count !== MIN_COUNT) {
-      setCount((prevCount) => prevCount - COUNT_STEP);
+      setCount((prevCount) => prevCount - STEP);
     }
   };
 
   const handlePlus = () => {
-    setCount((prevCount) => prevCount + COUNT_STEP);
+    setCount((prevCount) => prevCount + STEP);
   };
 
   return {
