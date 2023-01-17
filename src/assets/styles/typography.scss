@@ -23,6 +23,10 @@ body {
 //  line-height: 24px;
 //}
 
+.tp-reset {
+  @include reset();
+}
+
 .tp-14-16-400 {
   @include tp-14-16-400;
 }

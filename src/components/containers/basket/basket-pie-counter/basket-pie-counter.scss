@@ -1,0 +1,38 @@
+.basket-pie-counter {
+  display: flex;
+  align-items: center;
+
+  &__minus,
+  &__plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 34px;
+    border-radius: 5px;
+    color: #737984; //stylelint-disable-line
+    transition: 0.2s ease;
+
+    &:hover {
+      background-color: #ececec; //stylelint-disable-line
+    }
+  }
+
+  &__plus {
+    transform: rotate(180deg);
+  }
+
+  &__count {
+    box-sizing: border-box;
+    width: 33px;
+    height: 35px;
+    margin: 0 5px;
+    border: 1px solid #D5D6D6; //stylelint-disable-line
+    border-radius: 3px;
+    font-size: 18px;
+    line-height: 35px;
+    color: #1B4145; //stylelint-disable-line
+    text-align: center;
+    background-color: #FFFAD6; //stylelint-disable-line
+  }
+}
