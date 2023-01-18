@@ -1,6 +1,7 @@
 @import 'src/assets/styles/mixins';
 
 .pie-cart-basket-counter {
+  $block-name: &; // Использование: #{$block-name}__element
   display: flex;
   align-items: center;
 
@@ -31,5 +32,15 @@
     color: #1B4145; //stylelint-disable-line
     text-align: center;
     background-color: #FFFCE4; //stylelint-disable-line
+  }
+
+  &--disabled {
+    opacity: 0.3;
+
+    #{$block-name}__minus,
+    #{$block-name}__plus,
+    #{$block-name}__count {
+      cursor: default;
+    }
   }
 }

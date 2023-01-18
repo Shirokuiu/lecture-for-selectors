@@ -1,7 +1,9 @@
 import { Rate } from 'antd';
 
-function PieCartRate() {
-  return <Rate disabled defaultValue={2} />;
+import { Pie } from 'src/helpers/make-pies';
+
+function PieCartRate({ rate }: Pick<Pie, 'rate'>) {
+  return <Rate disabled allowHalf defaultValue={rate} />;
 }
 
 export default PieCartRate;

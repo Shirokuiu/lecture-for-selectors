@@ -7,7 +7,11 @@
   border-radius: 50%;
   background-color: #E4EEF4; //stylelint-disable-line
 
-  &__icon {
+  &__svg {
     transform: translateY(2px);
+
+    &--faded {
+      opacity: 0.2;
+    }
   }
 }

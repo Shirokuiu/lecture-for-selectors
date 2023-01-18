@@ -9,4 +9,11 @@
     margin-right: 5px;
     fill: #08B608; //stylelint-disable-line
   }
+
+  &__text {
+
+    &--danger {
+      color: #f5222d; //stylelint-disable-line
+    }
+  }
 }

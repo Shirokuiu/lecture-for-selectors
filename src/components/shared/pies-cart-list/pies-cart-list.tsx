@@ -1,24 +1,15 @@
 import PieCart from 'src/components/shared/pie-cart/pie-cart';
-import './pies-cart-list.scss';
+import { IPiesCartList } from 'src/components/shared/pies-cart-list/types';
+import 'src/components/shared/pies-cart-list/pies-cart-list.scss';
 
-function PiesCartList() {
+function PiesCartList({ pies }: IPiesCartList) {
   return (
     <ul className="pies-cart-list">
-      <li className="pies-cart-list__item">
-        <PieCart />
-      </li>
-      <li className="pies-cart-list__item">
-        <PieCart />
-      </li>
-      <li className="pies-cart-list__item">
-        <PieCart />
-      </li>
-      <li className="pies-cart-list__item">
-        <PieCart />
-      </li>
-      <li className="pies-cart-list__item">
-        <PieCart />
-      </li>
+      {pies.map((pie) => (
+        <li key={pie.id} className="pies-cart-list__item">
+          <PieCart pie={pie} />
+        </li>
+      ))}
     </ul>
   );
 }
