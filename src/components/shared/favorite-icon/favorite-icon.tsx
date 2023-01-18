@@ -1,16 +1,16 @@
+import { IFavoriteIcon } from 'src/components/shared/favorite-icon/types';
 import SvgSpriteIcon from 'src/components/shared/svg-sprite-icon/svg-sprite-icon';
 import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
-import { PropsWithCssClassName } from 'src/type/shared';
-import './favorite-icon.scss';
+import 'src/components/shared/favorite-icon/favorite-icon.scss';
 
-function FavoriteIcon({ className = '', ...props }: PropsWithCssClassName) {
+function FavoriteIcon({ className = '', mod, ...props }: IFavoriteIcon) {
   return (
     <div {...props} className={`favorite-icon ${className}`.trim()}>
       <SvgSpriteIcon
         id={SvgSpriteIconId.Like}
         width={30}
         height={30}
-        className="favorite-icon__icon"
+        className={`favorite-icon__svg ${mod ? `favorite-icon__svg--${mod}` : ''}`.trim()}
       />
     </div>
   );
