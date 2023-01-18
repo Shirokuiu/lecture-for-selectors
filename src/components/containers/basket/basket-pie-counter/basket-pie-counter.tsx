@@ -1,10 +1,11 @@
 import SvgSpriteIcon from 'src/components/shared/svg-sprite-icon/svg-sprite-icon';
 import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
 import useCounter from 'src/hooks/use-counter';
+import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 import './basket-pie-counter.scss';
 
-function BasketPieCounter() {
-  const { count, handleMinus, handlePlus } = useCounter(1);
+function BasketPieCounter({ count: startCount }: Pick<MappedPie, 'count'>) {
+  const { count, handleMinus, handlePlus } = useCounter(startCount);
 
   return (
     <div className="basket-pie-counter">

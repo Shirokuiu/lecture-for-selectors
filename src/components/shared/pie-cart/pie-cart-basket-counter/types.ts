@@ -1,5 +1,5 @@
-import { Pie } from 'src/helpers/make-pies';
+import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 
-export type IPieCartBasketCounter = Pick<Pie, 'count'> & {
+export type IPieCartBasketCounter = Pick<MappedPie, 'count'> & {
   disabled?: boolean;
 };

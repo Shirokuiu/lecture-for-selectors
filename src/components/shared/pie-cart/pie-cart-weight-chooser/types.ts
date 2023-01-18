@@ -1,5 +1,5 @@
-import { Pie } from 'src/helpers/make-pies';
+import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 
-export type IPieCartWeightChooser = Pick<Pie, 'weights'> & {
+export type IPieCartWeightChooser = Pick<MappedPie, 'weights'> & {
   disabled?: boolean;
 };

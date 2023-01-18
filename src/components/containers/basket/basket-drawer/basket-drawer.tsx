@@ -15,6 +15,9 @@ function BasketDrawer({ isOpen = false, onClose = () => undefined }: IBasketDraw
       className="basket-drawer"
     >
       <BasketItems />
+      <p className="basket-drawer__total-price">
+        Итого: <span className="basket-drawer__total-price-currency">15 940 руб.</span>
+      </p>
     </Drawer>
   );
 }

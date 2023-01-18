@@ -11,7 +11,4 @@ const FillingMap = {
 };
 
 export const getFillingTitle = (pieFilling: PieFilling[]) =>
-  pieFilling
-    .map((filling) => FillingMap[filling])
-    .join(' и ')
-    .toUpperCase();
+  pieFilling.map((filling) => FillingMap[filling]).join(' и ');

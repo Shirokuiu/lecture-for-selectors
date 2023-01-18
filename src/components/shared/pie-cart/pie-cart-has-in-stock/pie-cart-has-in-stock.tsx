@@ -1,9 +1,9 @@
 import SvgSpriteIcon from 'src/components/shared/svg-sprite-icon/svg-sprite-icon';
 import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
-import { Pie } from 'src/helpers/make-pies';
+import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 import 'src/components/shared/pie-cart/pie-cart-has-in-stock/pie-cart-has-in-stock.scss';
 
-function PieCartHasInStock({ inStock }: Pick<Pie, 'inStock'>) {
+function PieCartHasInStock({ inStock }: Pick<MappedPie, 'inStock'>) {
   return (
     <p className="pie-cart-has-in-stock">
       {inStock && (
