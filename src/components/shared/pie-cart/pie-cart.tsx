@@ -1,7 +1,6 @@
 import { Button, Tooltip } from 'antd';
 
 import LeanTag from 'src/components/shared/lean-tag/lean-tag';
-import { getFillingTitle } from 'src/components/shared/pie-cart/helpers/get-filling-title';
 import PieCartBasketCounter from 'src/components/shared/pie-cart/pie-cart-basket-counter/pie-cart-basket-counter';
 import PieCartFavoriteBtn from 'src/components/shared/pie-cart/pie-cart-favorite-btn/pie-cart-favorite-btn';
 import PieCartHasInStock from 'src/components/shared/pie-cart/pie-cart-has-in-stock/pie-cart-has-in-stock';
@@ -10,6 +9,7 @@ import PieCartWeightChooser from 'src/components/shared/pie-cart/pie-cart-weight
 import { IPieCart } from 'src/components/shared/pie-cart/types';
 import SvgSpriteIcon from 'src/components/shared/svg-sprite-icon/svg-sprite-icon';
 import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
+import { getFillingTitle } from 'src/helpers/get-filling-title';
 import 'src/components/shared/pie-cart/pie-cart.scss';
 
 function PieCart({ pie }: IPieCart) {
@@ -29,7 +29,7 @@ function PieCart({ pie }: IPieCart) {
           <p className="pie-cart__rate-title">Осетинский пирог</p>
           <PieCartRate rate={pie.rate} />
         </div>
-        <p className="pie-cart__content-title">С {getFillingTitle(pie.filling)}</p>
+        <p className="pie-cart__content-title">С {getFillingTitle(pie.filling).toUpperCase()}</p>
         <div className="pie-cart__weight">
           <div className="pie-cart__weigh-row-top">
             <PieCartHasInStock inStock={pie.inStock} />

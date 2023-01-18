@@ -1,8 +1,8 @@
 import { Rate } from 'antd';
 
-import { Pie } from 'src/helpers/make-pies';
+import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 
-function PieCartRate({ rate }: Pick<Pie, 'rate'>) {
+function PieCartRate({ rate }: Pick<MappedPie, 'rate'>) {
   return <Rate disabled allowHalf defaultValue={rate} />;
 }
 

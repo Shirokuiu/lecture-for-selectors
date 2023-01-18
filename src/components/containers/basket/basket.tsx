@@ -4,9 +4,12 @@ import './basket.scss';
 import { useState } from 'react';
 
 import BasketDrawer from 'src/components/containers/basket/basket-drawer/basket-drawer';
+import { useAppSelector } from 'src/hooks';
+import { getBasketPiesCount } from 'src/store/slices/basket-slice/selectors';
 
 function Basket() {
   const [isDrawerOpen, toggleDrawerOpen] = useState(false);
+  const basketPiesCount = useAppSelector(getBasketPiesCount);
 
   const handleDrawerOpen = () => {
     toggleDrawerOpen(true);
@@ -19,7 +22,7 @@ function Basket() {
   return (
     <div className="basket">
       <button type="button" className="basket__btn" onClick={handleDrawerOpen}>
-        <span className="basket__btn-badge">8</span>
+        <span className="basket__btn-badge">{basketPiesCount}</span>
         <SvgSpriteIcon
           id={SvgSpriteIconId.ShoppingCart}
           width={50}

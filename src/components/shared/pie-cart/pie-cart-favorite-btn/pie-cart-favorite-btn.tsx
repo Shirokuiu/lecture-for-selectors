@@ -4,13 +4,13 @@ import { useState } from 'react';
 import FavoriteIcon from 'src/components/shared/favorite-icon/favorite-icon';
 import { FavoriteIconMod } from 'src/components/shared/favorite-icon/types';
 import { getFavoriteTooltip } from 'src/components/shared/pie-cart/helpers/get-favorite-tooltip';
-import { Pie } from 'src/helpers/make-pies';
+import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 import { PropsWithCssClassName } from 'src/type/shared';
 
 function PieCartFavoriteBtn({
   className = '',
   isFavorite,
-}: PropsWithCssClassName<Pick<Pie, 'isFavorite'>>) {
+}: PropsWithCssClassName<Pick<MappedPie, 'isFavorite'>>) {
   const [favorite, toggleIsFavorite] = useState<boolean>(isFavorite);
 
   const handleFavoriteClick = () => {
