@@ -3,4 +3,5 @@ export enum SliceNameSpace {
   MAIN = 'MAIN',
   BASKET = 'BASKET',
   FAVORITES = 'FAVORITES',
+  FILTERS = 'FILTERS',
 }
