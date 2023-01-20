@@ -1,17 +1,16 @@
 import { Select } from 'antd';
+import { SelectProps } from 'antd/es/select';
 
 import { PropsWithCssClassName } from 'src/type/shared';
 
-function AppSelect({ className = '' }: PropsWithCssClassName) {
+function AppSelect({ className = '', ...selectProps }: PropsWithCssClassName<SelectProps>) {
   return (
     <Select
-      mode="multiple"
       allowClear
       showArrow
       style={{ width: '100%' }}
-      placeholder="Please select"
-      options={[{ disabled: false, label: 'Test', value: 1 }]}
       className={`app-select ${className}`.trim()}
+      {...selectProps}
     />
   );
 }

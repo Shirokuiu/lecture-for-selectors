@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 
 import SvgSprite from 'src/components/shared/svg-sprite/svg-sprite';
