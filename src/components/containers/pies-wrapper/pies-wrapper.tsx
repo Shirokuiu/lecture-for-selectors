@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+
+import { filterPies } from 'src/components/containers/pies-wrapper/helpers/filter-pies';
 import Filter from 'src/components/shared/filter/filter';
 import PiesCartList from 'src/components/shared/pies-cart-list/pies-cart-list';
 import { PieFilling } from 'src/helpers/make-pies';
@@ -15,6 +18,7 @@ import {
   getSortingItemsForFilters,
 } from 'src/store/slices/filters-slice/selectors';
 import { FiltersSliceSorting } from 'src/store/slices/filters-slice/types';
+import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 import { getPies } from 'src/store/slices/main-slice/selectors';
 
 function PiesWrapper() {
@@ -24,6 +28,11 @@ function PiesWrapper() {
   const selectedFillingValues = useAppSelector(getSelectedFillingValuesForFilters);
   const selectedSortingValue = useAppSelector(getSelectedSortingValueForFilters);
   const dispatch = useAppDispatch();
+  const [filteredPies, updateFilteredPies] = useState<MappedPie[]>(pies);
+
+  useEffect(() => {
+    updateFilteredPies(filterPies(pies, selectedFillingValues, selectedSortingValue));
+  }, [selectedFillingValues, selectedSortingValue]);
 
   const handleFilterChange = (evt: PieFilling[] | FiltersSliceSorting) => {
     if (Array.isArray(evt)) {
@@ -49,7 +58,7 @@ function PiesWrapper() {
         onFilterChange={handleFilterChange}
         onFilterReset={handleFilterReset}
       />
-      <PiesCartList pies={pies} />
+      <PiesCartList pies={filteredPies} />
     </div>
   );
 }
