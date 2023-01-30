@@ -1,4 +1,5 @@
 import { Button, Tooltip } from 'antd';
+import { useState } from 'react';
 
 import LeanTag from 'src/components/shared/lean-tag/lean-tag';
 import PieCartBasketCounter from 'src/components/shared/pie-cart/pie-cart-basket-counter/pie-cart-basket-counter';
@@ -12,7 +13,31 @@ import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
 import { getFillingTitle } from 'src/helpers/get-filling-title';
 import 'src/components/shared/pie-cart/pie-cart.scss';
 
-function PieCart({ pie }: IPieCart) {
+function PieCart({ pie, onAddToBasket = () => undefined }: IPieCart) {
+  const [selectedWeightPrice, updateSelectedWeightPrice] = useState<number>(
+    pie.weight.selectedPrice,
+  );
+  const [pieCount, updatePieCount] = useState<number>(pie.count);
+
+  const handleSelectedWeightPriceChange = (weightPrice: number) => {
+    updateSelectedWeightPrice(weightPrice);
+  };
+
+  const handleCountChange = (count: number) => {
+    updatePieCount(count);
+  };
+
+  const handleAddToBasket = () => {
+    onAddToBasket({
+      ...pie,
+      weight: {
+        ...pie.weight,
+        selectedPrice: selectedWeightPrice,
+      },
+      count: pieCount,
+    });
+  };
+
   return (
     <div className="pie-cart">
       <div className="pie-cart__img-wrap">
@@ -35,7 +60,11 @@ function PieCart({ pie }: IPieCart) {
             <PieCartHasInStock inStock={pie.inStock} />
             <p className="pie-cart__weight-title">выберите вес:</p>
           </div>
-          <PieCartWeightChooser weights={pie.weights} disabled={!pie.inStock} />
+          <PieCartWeightChooser
+            weight={pie.weight}
+            disabled={!pie.inStock}
+            onSelectChange={handleSelectedWeightPriceChange}
+          />
         </div>
         <div className="pie-cart__add-to-basket">
           <Button
@@ -47,10 +76,15 @@ function PieCart({ pie }: IPieCart) {
                 className="pie-cart__add-to-basket-btn-icon"
               />
             }
+            onClick={handleAddToBasket}
           >
             В КОРЗИНУ
           </Button>
-          <PieCartBasketCounter count={pie.count} disabled={!pie.inStock} />
+          <PieCartBasketCounter
+            count={pie.count}
+            disabled={!pie.inStock}
+            onCountChange={handleCountChange}
+          />
         </div>
       </div>
     </div>
