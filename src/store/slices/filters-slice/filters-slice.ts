@@ -37,4 +37,4 @@ export const filtersSlice = createSlice({
   },
 });
 
-export const { setFillingValues, setSortingItem, resetSelectedFilters } = filtersSlice.actions;
+export const { actions: filtersSliceActions } = filtersSlice;

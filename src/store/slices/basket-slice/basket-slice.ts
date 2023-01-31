@@ -30,4 +30,4 @@ export const basketSlice = createSlice({
   },
 });
 
-export const { addToBasket, removeFromBasket, updateItemCount } = basketSlice.actions;
+export const { actions: basketSliceActions } = basketSlice;

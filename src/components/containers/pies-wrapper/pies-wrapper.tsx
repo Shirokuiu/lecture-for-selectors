@@ -6,11 +6,7 @@ import PiesCartList from 'src/components/shared/pies-cart-list/pies-cart-list';
 import { PieFilling } from 'src/helpers/make-pies';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { DEFAULT_SELECTED_SORTING_VALUE } from 'src/store/slices/filters-slice/constants';
-import {
-  resetSelectedFilters,
-  setFillingValues,
-  setSortingItem,
-} from 'src/store/slices/filters-slice/filters-slice';
+import { filtersSliceActions } from 'src/store/slices/filters-slice/filters-slice';
 import {
   getFillingItemsForFilters,
   getSelectedFillingValuesForFilters,
@@ -36,16 +32,20 @@ function PiesWrapper() {
 
   const handleFilterChange = (evt: PieFilling[] | FiltersSliceSorting) => {
     if (Array.isArray(evt)) {
-      dispatch(setFillingValues(evt));
+      dispatch(filtersSliceActions.setFillingValues(evt));
 
       return;
     }
 
-    dispatch(setSortingItem((evt as FiltersSliceSorting) ?? DEFAULT_SELECTED_SORTING_VALUE));
+    dispatch(
+      filtersSliceActions.setSortingItem(
+        (evt as FiltersSliceSorting) ?? DEFAULT_SELECTED_SORTING_VALUE,
+      ),
+    );
   };
 
   const handleFilterReset = () => {
-    dispatch(resetSelectedFilters());
+    dispatch(filtersSliceActions.resetSelectedFilters());
   };
 
   return (

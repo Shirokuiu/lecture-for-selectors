@@ -21,4 +21,4 @@ export const favoritesSlice = createSlice({
   },
 });
 
-export const { addToFavorite, removeFromFavorite } = favoritesSlice.actions;
+export const { actions: favoritesSliceActions } = favoritesSlice;
