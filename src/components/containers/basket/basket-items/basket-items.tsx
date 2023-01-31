@@ -1,6 +1,6 @@
 import BasketPie from 'src/components/containers/basket/basket-pie/basket-pie';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
-import { removeFromBasket, updateItemCount } from 'src/store/slices/basket-slice/basket-slice';
+import { basketSliceActions } from 'src/store/slices/basket-slice/basket-slice';
 import { getBasketPies } from 'src/store/slices/basket-slice/selectors';
 import './basket-items.scss';
 
@@ -14,8 +14,8 @@ function BasketItems() {
         <li key={pie.id} className="basket-items__cart-wrap">
           <BasketPie
             pie={pie}
-            onRemove={(pieId) => dispatch(removeFromBasket(pieId))}
-            onCountChange={(evt) => dispatch(updateItemCount(evt))}
+            onRemove={(pieId) => dispatch(basketSliceActions.removeFromBasket(pieId))}
+            onCountChange={(evt) => dispatch(basketSliceActions.updateItemCount(evt))}
           />
         </li>
       ))}
