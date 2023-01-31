@@ -6,7 +6,11 @@ import { IBasketPie } from 'src/components/containers/basket/basket-pie/types';
 import { getFillingTitle } from 'src/helpers/get-filling-title';
 import './basket-pie.scss';
 
-function BasketPie({ pie }: IBasketPie) {
+function BasketPie({
+  pie,
+  onRemove = () => undefined,
+  onCountChange = () => undefined,
+}: IBasketPie) {
   return (
     <div className="basket-pie">
       <div className="basket-pie__img-wrap">
@@ -21,9 +25,17 @@ function BasketPie({ pie }: IBasketPie) {
       <p className="tp-reset basket-pie__title">
         Осетинский пирог с {getFillingTitle(pie.filling)}
       </p>
-      <BasketPieCounter count={pie.count} />
+      <BasketPieCounter
+        count={pie.count}
+        onCountChange={(count) => onCountChange({ id: pie.id, count })}
+      />
       <p className="tp-reset basket-pie__price">{pie.totalPrice} руб.</p>
-      <Button type="text" icon={<CloseOutlined />} className="btn-reset" />
+      <Button
+        type="text"
+        icon={<CloseOutlined />}
+        className="btn-reset"
+        onClick={() => onRemove(pie.id)}
+      />
     </div>
   );
 }

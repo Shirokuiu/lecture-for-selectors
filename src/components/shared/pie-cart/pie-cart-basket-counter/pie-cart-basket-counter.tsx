@@ -1,11 +1,29 @@
+import { useEffect } from 'react';
+
 import { IPieCartBasketCounter } from 'src/components/shared/pie-cart/pie-cart-basket-counter/types';
 import SvgSpriteIcon from 'src/components/shared/svg-sprite-icon/svg-sprite-icon';
 import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
 import useCounter from 'src/hooks/use-counter';
 import 'src/components/shared/pie-cart/pie-cart-basket-counter/pie-cart-basket-counter.scss';
 
-function PieCartBasketCounter({ count, disabled }: IPieCartBasketCounter) {
+function PieCartBasketCounter({
+  count,
+  disabled,
+  onCountChange = () => undefined,
+}: IPieCartBasketCounter) {
   const { count: counter, handleMinus, handlePlus } = useCounter(count);
+
+  useEffect(() => {
+    onCountChange(counter);
+  }, [counter]);
+
+  const handleMinusClick = () => {
+    handleMinus();
+  };
+
+  const handlePlusClick = () => {
+    handlePlus();
+  };
 
   return (
     <div
@@ -17,7 +35,7 @@ function PieCartBasketCounter({ count, disabled }: IPieCartBasketCounter) {
         disabled={disabled}
         type="button"
         className="pie-cart-basket-counter__minus"
-        onClick={handleMinus}
+        onClick={handleMinusClick}
       >
         <SvgSpriteIcon id={SvgSpriteIconId.Minus} width={15} height={15} />
       </button>
@@ -26,7 +44,7 @@ function PieCartBasketCounter({ count, disabled }: IPieCartBasketCounter) {
         disabled={disabled}
         type="button"
         className="pie-cart-basket-counter__plus"
-        onClick={handlePlus}
+        onClick={handlePlusClick}
       >
         <SvgSpriteIcon id={SvgSpriteIconId.Plus} width={15} height={15} />
       </button>
