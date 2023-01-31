@@ -1,53 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { MeasureOfWeight, PieFilling } from 'src/helpers/make-pies';
 import { SliceNameSpace } from 'src/store/constants';
+import { calculatePie } from 'src/store/slices/basket-slice/helpers/calculate-pie';
 import { BasketSliceInitialState } from 'src/store/slices/basket-slice/types';
+import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 
 const initialState: BasketSliceInitialState = {
-  pies: [
-    {
-      id: 8,
-      count: 1,
-      rate: 5,
-      img: '/img/meat-piper.jpg',
-      isLean: false,
-      isFavorite: false,
-      inStock: true,
-      filling: [PieFilling.Meat, PieFilling.Piper],
-      weight: {
-        selectedPrice: 670,
-        items: [
-          {
-            id: 1,
-            count: 1000,
-            measureOfWeight: MeasureOfWeight.Gram,
-            price: 670,
-            isChecked: true,
-          },
-          {
-            id: 2,
-            count: 1200,
-            measureOfWeight: MeasureOfWeight.Gram,
-            price: 870,
-            isChecked: false,
-          },
-          {
-            id: 3,
-            count: 1400,
-            measureOfWeight: MeasureOfWeight.Gram,
-            price: 940,
-            isChecked: false,
-          },
-        ],
-      },
-      totalPrice: 670,
-    },
-  ],
+  pies: [],
 };
 
 export const basketSlice = createSlice({
   name: SliceNameSpace.BASKET,
   initialState,
-  reducers: {},
+  reducers: {
+    addToBasket(state, { payload: pie }: { payload: MappedPie }) {
+      state.pies = calculatePie(state.pies, pie);
+    },
+    updateItemCount(state, { payload: { id, count } }: { payload: { id: number; count: number } }) {
+      const modifiedPie = state.pies.find((pie) => pie.id === id);
+
+      if (modifiedPie) {
+        modifiedPie.count = count;
+        modifiedPie.totalPrice = modifiedPie.weight.selectedPrice * count;
+      }
+    },
+    removeFromBasket(state, { payload: pieId }: { payload: number }) {
+      state.pies = state.pies.filter(({ id }) => id !== pieId);
+    },
+  },
 });
+
+export const { addToBasket, removeFromBasket, updateItemCount } = basketSlice.actions;

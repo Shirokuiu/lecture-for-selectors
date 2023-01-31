@@ -1,12 +1,15 @@
 import PieCart from 'src/components/shared/pie-cart/pie-cart';
 import { IPiesCartList } from 'src/components/shared/pies-cart-list/types';
+import { useAppDispatch } from 'src/hooks';
+import { addToBasket } from 'src/store/slices/basket-slice/basket-slice';
 import { MappedPie } from 'src/store/slices/main-slice/helpers/map-pies';
 import 'src/components/shared/pies-cart-list/pies-cart-list.scss';
 
 function PiesCartList({ pies }: IPiesCartList) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleAddToBasket = (_pie: MappedPie) => {
-    // console.log(pie);
+  const dispatch = useAppDispatch();
+
+  const handleAddToBasket = (pie: MappedPie) => {
+    dispatch(addToBasket({ ...pie, id: pie.id + pie.weight.selectedPrice }));
   };
 
   return (

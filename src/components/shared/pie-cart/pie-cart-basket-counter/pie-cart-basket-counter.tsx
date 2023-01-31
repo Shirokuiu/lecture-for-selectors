@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { IPieCartBasketCounter } from 'src/components/shared/pie-cart/pie-cart-basket-counter/types';
 import SvgSpriteIcon from 'src/components/shared/svg-sprite-icon/svg-sprite-icon';
 import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
@@ -11,14 +13,16 @@ function PieCartBasketCounter({
 }: IPieCartBasketCounter) {
   const { count: counter, handleMinus, handlePlus } = useCounter(count);
 
+  useEffect(() => {
+    onCountChange(counter);
+  }, [counter]);
+
   const handleMinusClick = () => {
     handleMinus();
-    onCountChange(counter);
   };
 
   const handlePlusClick = () => {
     handlePlus();
-    onCountChange(counter);
   };
 
   return (
