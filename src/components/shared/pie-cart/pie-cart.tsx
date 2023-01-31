@@ -13,7 +13,11 @@ import { SvgSpriteIconId } from 'src/components/shared/svg-sprite-icon/types';
 import { getFillingTitle } from 'src/helpers/get-filling-title';
 import 'src/components/shared/pie-cart/pie-cart.scss';
 
-function PieCart({ pie, onAddToBasket = () => undefined }: IPieCart) {
+function PieCart({
+  pie,
+  onAddToBasket = () => undefined,
+  onFavoriteChange = () => undefined,
+}: IPieCart) {
   const [selectedWeightPrice, updateSelectedWeightPrice] = useState<number>(
     pie.weight.selectedPrice,
   );
@@ -41,7 +45,11 @@ function PieCart({ pie, onAddToBasket = () => undefined }: IPieCart) {
   return (
     <div className="pie-cart">
       <div className="pie-cart__img-wrap">
-        <PieCartFavoriteBtn isFavorite={pie.isFavorite} className="pie-cart__favorite-btn" />
+        <PieCartFavoriteBtn
+          isFavorite={pie.isFavorite}
+          className="pie-cart__favorite-btn"
+          onFavoriteChange={onFavoriteChange}
+        />
         {pie.isLean && (
           <Tooltip title="ПОСТНЫЙ">
             <LeanTag className="pie-cart__lean-tag" />
